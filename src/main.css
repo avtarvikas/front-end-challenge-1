@@ -1,0 +1,202 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: sans-serif;
+}
+
+.product-container {
+  width: 70%;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.product-img {
+  border: 1px solid grey;
+  padding: 0px;
+}
+img {
+  width: 100%;
+}
+
+.header {
+  background-color: #441853;
+  padding-top: 6px;
+  height: 80px;
+  color: white;
+  margin: auto;
+}
+.nav-name {
+  font-size: 30px;
+}
+.logo {
+  padding: 5px;
+}
+.header-name {
+  margin-top: 12px;
+}
+.logo-new-image {
+  text-align: center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.App-logo {
+  animation: spin infinite 20s linear;
+}
+
+.single-radio-button {
+  display: inline;
+}
+.rb-selected {
+  background-color: #ccffff;
+  border: 1px solid #00cccc;
+}
+.title {
+  font-weight: 600;
+}
+.nc-radio-button {
+  cursor: pointer;
+  display: inline-table;
+  height: 44px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  vertical-align: middle;
+  width: 125px;
+}
+.nc-radio-button-row {
+  display: table-row;
+  height: inherit;
+}
+.input-radio {
+  display: table-cell;
+  /* padding: 10px 10px 10px 10px; */
+  vertical-align: middle;
+  /* width: 32px; */
+}
+.radio {
+  display: none;
+  border: 1px solid #999;
+  height: 0px;
+  margin-top: 0px;
+  width: 12px;
+}
+input[type="radio"] + span {
+  background-color: #fff;
+  border: 1px solid #999999;
+  display: inline-block;
+  font-size: 14px;
+  width: 12px;
+  height: 12px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 50%;
+}
+input[type="radio"]:checked + span > .checked {
+  background-color: #555;
+}
+input[type="radio"] + span > .checked {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  position: relative;
+  color: #fff;
+  vertical-align: middle;
+  cursor: pointer;
+  top: -6px;
+  border-radius: 50%;
+  background-color: #fff;
+  left: 2px;
+}
+.radio-content {
+  color: #555;
+  cursor: inherit;
+  display: table-cell;
+  font-size: 15px;
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+  vertical-align: middle;
+}
+label {
+  font-weight: inherit;
+  cursor: unset;
+}
+.rb-unselected {
+  background-color: #ffffff;
+  border: 1px solid #999;
+}
+.nc-radio-button:hover {
+  background-color: #ccffff;
+  border: 1px solid #00cccc;
+  cursor: pointer;
+}
+.product-title {
+  font-size: 25px;
+  font-weight: 600;
+}
+.sub-title {
+  font-size: 20px;
+  text-transform: capitalize;
+  font-style: italic;
+}
+.description {
+  text-transform: capitalize;
+  margin: 15px 0px;
+}
+.product-source {
+  margin: 10px 0px;
+}
+.form-control {
+  display: inline !important;
+  width: fit-content;
+  height: 28px;
+  padding: 4px 5px;
+}
+.cart-container {
+  padding: 10px;
+  border: 1px solid black;
+  margin-top: 10px;
+}
+
+.cart-product-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+.cart-sub-title {
+  font-size: 15px;
+  text-transform: capitalize;
+  font-style: italic;
+}
+
+.content {
+  width: 64%;
+  margin: auto;
+}
+
+.cart-container:hover {
+  box-shadow: 0px 0px 10px 5px #c7c7c7;
+  cursor: pointer;
+}
+
+.cart-empty {
+  font-size: 30px;
+  position: relative;
+  top: 5rem;
+  left: 22rem;
+  width: fit-content;
+  padding: 8%;
+  border: 1px solid grey;
+}
+
+.cart-Item {
+  font-weight: 600;
+  font-size: 16px;
+  margin-right: 5px;
+}
