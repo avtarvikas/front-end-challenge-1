@@ -176,7 +176,7 @@ label {
 }
 
 .content {
-  width: 64%;
+  width: 90%;
   margin: auto;
 }
 
@@ -199,4 +199,17 @@ label {
   font-weight: 600;
   font-size: 16px;
   margin-right: 5px;
+}
+
+.grand-total {
+  margin-top: 10px;
+  border: 1px solid;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.total{
+  margin: 0px 20px;
+  font-size: 28px;
+  border-top: 1px solid #cbc5c5;
 }

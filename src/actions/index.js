@@ -1,4 +1,4 @@
-import { setValues, setInitialProductValue, setCartData } from "./taskData";
+import { setInitialProductValue, setCartData } from "./taskData";
 
 export const getProductData = (data) => dispatch => {
   dispatch(setInitialProductValue(data))

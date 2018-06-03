@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const taskData = (state = initialState, action) => {
-  const { type, payload } = action;
+  const { type } = action;
   switch (type) {
     case SET_CART_DATA:
       const data = localStorage.getItem("cartData");

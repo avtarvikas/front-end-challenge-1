@@ -40,7 +40,7 @@ class TaskPage extends Component {
   }
 
   handleSizeChange = e => {
-    const { sizes, selectedSize } = this.state;
+    const { sizes } = this.state;
     const sources =
       sizes && sizes[e.value] && this.getLowestCost(sizes[e.value]);
     this.setState({
@@ -54,9 +54,9 @@ class TaskPage extends Component {
 
   getLowestCost = data => {
     return data.sources.sort(function(a, b) {
-      return parseInt(a.discounted_price) > parseInt(b.discounted_price)
+      return parseInt(a.discounted_price,10) > parseInt(b.discounted_price,10)
         ? 1
-        : parseInt(b.discounted_price) > parseInt(a.discounted_price)
+        : parseInt(b.discounted_price,10) > parseInt(a.discounted_price,10)
           ? -1
           : 0;
     });
@@ -78,7 +78,6 @@ class TaskPage extends Component {
     console.log(updateCart, newData);
 
     let isNewItem = true;
-    let key = 0;
 
     updateCart.map((d, i) => {
       if (d.productData.product_id === newData.productData.product_id) {
@@ -88,8 +87,7 @@ class TaskPage extends Component {
             newData.sources[newData.selectedSource].id
           ) {
             isNewItem = false;
-            key = i;
-            return;
+            return true;
           }
         }
       }
@@ -97,7 +95,7 @@ class TaskPage extends Component {
 
     if (isNewItem) {
       updateCart.push(newData);
-      let data = localStorage.setItem("cartData", JSON.stringify(cartData));
+      localStorage.setItem("cartData", JSON.stringify(cartData));
       this.setState(
         {
           isAdded: true
@@ -132,7 +130,7 @@ class TaskPage extends Component {
           <div className="col-md-5 product-img">
             <img
               src={productData && productData.image && productData.image[0]}
-              alt="Product Image"
+              alt="Product"
               height={400}
               width={350}
             />
