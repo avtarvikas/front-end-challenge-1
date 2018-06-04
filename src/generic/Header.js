@@ -20,8 +20,6 @@ class Header extends React.Component {
     });
   }
   render() {
-    console.log(this.state.cartData, this.props);
-
     return (
       <div className="row header">
         <div className="col-md-5">

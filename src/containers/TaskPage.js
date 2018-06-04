@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getProductData, updateCart } from "../actions";
-import { sampleData } from "./productData";
 import RadioButton from "../generic/RadioButton";
+import myData from "../product.json";
 
 class TaskPage extends Component {
   state = {
@@ -18,11 +18,13 @@ class TaskPage extends Component {
     isExit: false
   };
   componentWillMount() {
-    this.props.getProductData(sampleData);
+    this.props.getProductData(myData);
     const data = localStorage.getItem("cartData");
-    this.setState({
-      cartData: JSON.parse(data)
-    });
+    if (data !== null) {
+      this.setState({
+        cartData: JSON.parse(data)
+      });
+    }
   }
   componentWillReceiveProps(props) {
     const { sizes } = props.data;
@@ -35,7 +37,7 @@ class TaskPage extends Component {
       productData: props.data.productData,
       sizes: props.data.sizes,
       sources,
-      cartData: JSON.parse(data)
+      cartData: data !== null ? JSON.parse(data) : []
     });
   }
 
@@ -54,9 +56,9 @@ class TaskPage extends Component {
 
   getLowestCost = data => {
     return data.sources.sort(function(a, b) {
-      return parseInt(a.discounted_price,10) > parseInt(b.discounted_price,10)
+      return parseInt(a.discounted_price, 10) > parseInt(b.discounted_price, 10)
         ? 1
-        : parseInt(b.discounted_price,10) > parseInt(a.discounted_price,10)
+        : parseInt(b.discounted_price, 10) > parseInt(a.discounted_price, 10)
           ? -1
           : 0;
     });
@@ -75,23 +77,23 @@ class TaskPage extends Component {
     const { isAdded, isExit, cartData, sizes, ...restOfState } = this.state;
     const updateCart = cartData;
     let newData = restOfState;
-    console.log(updateCart, newData);
-
     let isNewItem = true;
 
-    updateCart.map((d, i) => {
-      if (d.productData.product_id === newData.productData.product_id) {
-        if (d.selectedSize === newData.selectedSize) {
-          if (
-            d.sources[d.selectedSource].id ===
-            newData.sources[newData.selectedSource].id
-          ) {
-            isNewItem = false;
-            return true;
+    updateCart &&
+      updateCart.length > 0 &&
+      updateCart.map((d, i) => {
+        if (d.productData.product_id === newData.productData.product_id) {
+          if (d.selectedSize === newData.selectedSize) {
+            if (
+              d.sources[d.selectedSource].id ===
+              newData.sources[newData.selectedSource].id
+            ) {
+              isNewItem = false;
+              return true;
+            }
           }
         }
-      }
-    });
+      });
 
     if (isNewItem) {
       updateCart.push(newData);
@@ -104,7 +106,8 @@ class TaskPage extends Component {
       );
     } else {
       this.setState({
-        isExit: true
+        isExit: true,
+        isAdded: false
       });
     }
   };
