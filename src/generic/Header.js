@@ -41,6 +41,16 @@ class Header extends React.Component {
           </div>
         </div>
         <div className="col-md-7" style={{ padding: "15px" }}>
+        <span style={{ marginLeft: "15px", float: "right" }}>
+            <button
+              style={{ padding: "4px 24px" }}
+              type="button"
+              className="btn btn-primary"
+              onClick={() => this.props.history.push("/message")}
+            >
+              Message Board
+            </button>
+          </span>
           <span style={{ marginLeft: "15px", float: "right" }}>
             <button
               style={{ padding: "4px 24px" }}
